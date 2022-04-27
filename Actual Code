@@ -167,6 +167,11 @@ class Doctor(Person):
         attributes_list.append(self.addition)
         self.dictionary_keys[key_id] = attributes_list
         
+    #Used if doc presses 2 in doc menu to view all patients 
+    def printPatients(self):
+        for key, value in self.dictionary_keys.items():
+            print('Patient ', key, ": ", value)
+        
     # Create discharge patient function
     def discharge_patient(self):
         filename = input("First Name: ")
