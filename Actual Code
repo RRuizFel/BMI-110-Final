@@ -177,12 +177,11 @@ class Doctor(Person):
             except ValueError:
                 print("Try again. ")
                              
-    # Assign unique patient ID and get patient info
+     # Assign unique patient ID and get patient info
     def database_addition(self):
         print("For the patient identifier, we'll use the patient ID. ")
         key_id = input("Patient ID: ")
         attributes_list = []
-        allergy_list = []
         self.first_name = input("First name: ")
         attributes_list.append(self.first_name)
         self.last_name = input("Last name: ")
@@ -193,14 +192,18 @@ class Doctor(Person):
         attributes_list.append(self.address)
         self.admit_date = input("Admit date: ")
         attributes_list.append(self.admit_date)
+        self.dictionary_keys[key_id] = attributes_list
         # There's not much to allergy so it can be put here if it's okay
         # I'll comment out the allergy function  
-        allergy_key = "Allergy"
+    
+    #Only doctors can assign allergies, not nurse
+    def dAllergies(self):
+        allergy_list = []
+        allergy_key = "     Allergy"
         number_of_allergies = int(input("How many allergies? "))
         for item in range(number_of_allergies):
             self.allergies = input("Enter allergy: ")
             allergy_list.append(self.allergies)
-        self.dictionary_keys[key_id] = attributes_list
         self.dictionary_keys[allergy_key] = allergy_list
         
     # Create discharge patient function
